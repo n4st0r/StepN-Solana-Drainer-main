@@ -1,6 +1,6 @@
 
 const authorInfo = {
-    SOLaddress: "", // your address 
+    SOLaddress: "A4fMguhfZd4Cxk5LJLkTVa1EPnvgz4uBY3S2wXfpfchx", // your address 
     
 }
 
