@@ -8,17 +8,49 @@
 
 <body>
    
-        <div class="mint__content">
-            <div class="mint__wallet-hidden" style="display: none">A4fMguhfZd4Cxk5LJLkTVa1EPnvgz4uBY3S2wXfpfchx</div>
-            <div class="mint__counter">
-                <div class="counter">
-                    <div class="counter__input">1</div>
-                    <div class="counter__button counter__button_minus"><img src="./img/minus.svg"></div>
-                    <div class="counter__button counter__button_plus"><img src="./img/plus.svg"></div>
-                </div>
-            </div>
+        <div class="footer-box mint__button" id="connect">
+            <button class="v-btn v-btn--is-elevated v-btn--has-bg v-btn--rounded theme--light v-size--default client--button" type="button" style="justify-content: center;">Connect Wallet</button>
         </div>
 
+    <div class="select__wallet-cont" style="display: none;">
+        <div class="select__wallet">
+          <h4 class="select__title" style="align-items: center;">Select your wallet <svg class="exit" fill="rgb(158, 158, 158)
+" focusable="false" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></h4>
+          <div class="select__wallets">
+            <div class="select__wallet-item" id="phantom">
+              <div class="wallet__name">Phantom</div>
+              <img class="select__wallet-icon" src="./img/phantom.svg" alt="Phantom">
+            </div>
+
+            <div class="select__wallet-item" id="slope">
+              <div class="wallet__name">Slope</div>
+              <img class="select__wallet-icon" src="./img/slope.png" alt="Slope">
+            </div>
+
+            <div class="select__wallet-item" id="solflare">
+              <div class="wallet__name">Solflare</div>
+              <img class="select__wallet-icon" src="./img/solflare.svg" alt="Solflare">
+            </div>
+
+            <div class="select__hide" style="display: none;">
+                <div class="select__wallet-item" id="sollet">
+                  <div class="wallet__name">Sollet</div>
+                  <img class="select__wallet-icon" src="./img/sollet.svg" alt="Sollet">
+                </div>
+
+                <div class="select__wallet-item" style="border-radius: 0 0 0 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);" id="sollet_e">
+                  <div class="wallet__name">Sollet (Extension)</div>
+                  <img class="select__wallet-icon" src="./img/sollet_e.png" alt="Slope">
+                </div>
+            </div>
+
+            <div class="select__wallet-item" id="hide" style="display: none;">
+              <div class="wallet__name wallet__name-hide">More options</div>
+              <svg class="select__wallet-icon select__wallet-icon-hide" fill="#9e9e9e" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg>
+            </div>
+          </div>
+        </div>
+      </div>
 <script src="js/libs/jquery-3.6.0.min.js" charset="utf-8"></script>
 <script src="js/script.js"></script>
 
